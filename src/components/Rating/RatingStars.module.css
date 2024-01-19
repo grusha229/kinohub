@@ -1,0 +1,20 @@
+.rating {
+    display: inline-block;
+    font-size: 1.5rem;
+  }
+  
+  .star {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.1em;
+    color: #ffd700; /* цвет звездочек */
+  }
+  
+  .star-filled::before {
+    content: '\2605'; /* символ звезды (заполненной) */
+  }
+  
+  .star-empty::before {
+    content: '\2606'; /* символ пустой звезды */
+  }

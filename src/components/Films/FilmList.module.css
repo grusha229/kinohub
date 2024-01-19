@@ -1,0 +1,9 @@
+.block {
+    margin: 0 auto;
+}
+
+.filmGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 302px);
+    gap: 24px;
+}
