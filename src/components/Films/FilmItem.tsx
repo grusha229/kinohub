@@ -30,12 +30,12 @@ export default function Film (props: Props) {
                 <Image 
                     className={s.movieImage}
                     height={400} width={300} 
-                    src={props.film.posterUrlPreview}
+                    src={props.film.posterUrl}
                     alt={props.film.nameEn}
                     quality={70}
                     sizes="100vh"
                     placeholder = 'blur'
-                    blurDataURL={props.film.posterUrl}
+                    blurDataURL={props.film.posterUrlPreview}
                     priority={props.isPriority}
                 />
                 <div className={s.movieDescription}>
