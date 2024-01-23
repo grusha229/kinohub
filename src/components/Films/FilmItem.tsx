@@ -27,6 +27,11 @@ export default function Film (props: Props) {
     return (
         <article className={s.movie}>
             <Link href={`/films/${props.film.filmId}`} className={s.movieLink}>
+                {
+                    (!props.film.posterUrlPreview) && <div className={s.movieImage}>
+                        <p>Не удалось загрузить изображение</p>
+                    </div>
+                }
                 <Image 
                     className={s.movieImage}
                     height={400} width={300} 

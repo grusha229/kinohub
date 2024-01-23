@@ -51,8 +51,11 @@ if (!(loading) && !(films)) {
             }
         </ul>
         {
-            (currentPage < pagesCount) && <button onClick={getMoreFilms}> Загрузить ещё </button>
-            }
+            (currentPage < pagesCount) && 
+            <div className={s.listFooter}>
+                <button className={s.button} onClick={getMoreFilms}> Загрузить ещё </button>
+            </div>
+        }
     </div>
   )
 }

@@ -1,9 +1,21 @@
 .block {
-    margin: 0 auto;
+    margin: 24px auto 24px;
 }
 
 .filmGrid {
     display: grid;
     grid-template-columns: repeat(4, 302px);
     gap: 24px;
+}
+
+.listFooter {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.button {
+    
 }
