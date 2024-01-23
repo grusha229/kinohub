@@ -1,30 +1,30 @@
 "use client";
 // import useSWR from "swr";
-import { useFilms } from "@/store";
-import { FormEventHandler, useState } from "react";
+import { TUseFilms, useFilms } from "@/store";
+import Debounce from "@/utils/Debounce";
+import { FormEventHandler, useEffect, useState } from "react";
 
 const FilmSearch = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string | null>(null);
 
-  const getFilmsByQuery = useFilms((state) => state.getFilmsByQuery);
+  const getFilmsByQuery = useFilms((state : any) => state.getFilmsByQuery);
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault();
+  useEffect(() => {
+    (search) && getFilmsByQuery(search, 1);
+  },[search])
 
-    await getFilmsByQuery(search, 1);
-  };
 
   return (
     <div className={`container`}>
-        <form onSubmit={handleSubmit}>
         <input
             type="search"
             placeholder="search"
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
+            onChange={
+              Debounce((e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+                setSearch(e.target.value)
+              }, 500)
+          }
         />
-        <button type="submit">Search</button>
-        </form>
     </div>
   );
 };

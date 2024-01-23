@@ -50,10 +50,10 @@ export default function Film (props: Props) {
                     </h4>
                     <div className={s.movieFooter}>
                         <div className={s.movieFooter_genre}>
-                            {props.film.genres[0].genre}
+                            {(props.film.genres.length > 0) && props.film.genres[0].genre}
                         </div>
                         <div className={s.movieFooter_year}>
-                            {props.film.year}
+                            {(props.film.year) && props.film.year}
                         </div>
                     </div>
                 </div>

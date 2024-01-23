@@ -1,17 +1,19 @@
 "use client";
 import { shallow } from "zustand/shallow";
-import { useFilms } from "@/store";
+import { TUseFilms, useFilms } from "@/store";
 import Link from "next/link";
 import { useEffect } from "react";
 import Film from "./FilmItem";
 import s from "./FilmList.module.css"
 
 const FilmList = () => {
-    const [films, filmsAmount, loading, getAllFilms] = useFilms((state: { films: any, filmsAmount: number, loading: any, getAllFilms: any }) => [
+    const [films, filmsAmount, loading, currentPage, pagesCount, getMoreFilms] = useFilms((state : any) => [
         state.films,
         state.filmsAmount,
         state.loading,
-        state.getAllFilms
+        state.currentPage,
+        state.pagesCount,
+        state.getMoreFilms,
     ],
     shallow
   );
@@ -48,6 +50,9 @@ if (!(loading) && !(films)) {
                 ))
             }
         </ul>
+        {
+            (currentPage < pagesCount) && <button onClick={getMoreFilms}> Загрузить ещё </button>
+            }
     </div>
   )
 }

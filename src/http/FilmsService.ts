@@ -1,3 +1,4 @@
+import { IFilmResponse } from "@/DataModels/Films";
 
 
 export const getAllFilms = async () => {
@@ -12,7 +13,7 @@ if (!response.ok) throw new Error("Unable to fetch films.");
     return response.json();
 };
 
-export const getFilmsByQuery = async (query: string, page: number) => {
+export const getFilmsByQuery = async (query: string, page: number) : Promise<IFilmResponse> => {
 const response = await fetch(`https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${query}&page=${page}`,{
     method: 'GET',
     headers: {
