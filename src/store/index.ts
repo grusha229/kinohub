@@ -47,13 +47,7 @@ export const useFilms = createWithEqualityFn(
             getFilmsByQuery(getState().query, getState().currentPage + 1)
                 .then((res) => {
                     //@ts-ignore
-                    set({
-                        films: currentFilms.concat(res.films),
-                        loading: false,
-                        filmsAmount: res.searchFilmsCountResult,
-                        pagesCount: pageCountApiHandler(res.searchFilmsCountResult),
-                        currentPage: getState().currentPage + 1
-                    })
+                    set({films: currentFilms.concat(res.films),loading: false,filmsAmount: res.searchFilmsCountResult,pagesCount: pageCountApiHandler(res.searchFilmsCountResult),currentPage: getState().currentPage + 1})
                 })
         }
     }),))
